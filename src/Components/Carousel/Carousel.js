@@ -60,7 +60,7 @@ function CarouselComponent() {
                                 <div className='container'>
                                     <div className='row d-flex justify-content-around'>
                                         {cards1.map((card, index) => (
-                                            <div className='col-md-4 px-4 position-relative'>
+                                            <div key={index} className='col-md-4 px-4 position-relative'>
                                                 <div className='d-flex justify-content-center'>
                                                     <img src={person1} className={`rounded-circle ${styles.personImg}`} alt={`Person ${index}`} />
                                                 </div>
@@ -83,7 +83,7 @@ function CarouselComponent() {
                                 <div className='container'>
                                     <div className='row d-flex justify-content-around'>
                                         {cards2.map((card, index) => (
-                                            <div className='col-md-4 px-4 position-relative'>
+                                            <div key={index} className='col-md-4 px-4 position-relative'>
                                                 <div className='d-flex justify-content-center'>
                                                     <img src={person1} className={`rounded-circle ${styles.personImg}`} alt={`Person ${index}`} />
                                                 </div>
