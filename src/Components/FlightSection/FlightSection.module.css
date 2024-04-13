@@ -1,0 +1,52 @@
+.imgContainer{
+    position: relative;
+}
+.mainImg{
+    width:100%;
+}
+.textOverlay{
+    position: absolute;
+    top: 23%;
+    left:8%;
+    color:white;
+}
+.textOverlay p:first-child,
+.textOverlay p:nth-child(2){
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 35px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.textOverlay p:nth-child(3){
+    font-size: 14px;
+    line-height: 0;
+}
+.inputsBook{
+    position:absolute;
+    top:65%;
+    left:8%;
+}
+.imgIcon{
+    background-color: white !important;
+    border-radius: 0 !important;
+}
+::placeholder{
+    font-size: 12px;
+}
+form input:nth-child(2){
+    border-left: none !important;
+    border-right: none !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+button{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+.inputContainer{
+    border: 2px solid #2f83b2;
+}
+.searchBtnOverlay{
+    border: 3px solid #2f83b2 !important;
+    background-color: #2f83b2 !important;
+}

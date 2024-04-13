@@ -1,0 +1,16 @@
+.headerBtn {
+  flex: 1;
+  max-width: 120px;
+  /* transition: background-color 0.3s ease; Add transition for smooth color change */
+  color:#A6A6A6 !important;
+  font-family: 'popMedium' !important;
+}
+
+.headerBtn:hover{
+  background-color: #07689F !important; /* Change background color on hover */
+  color:white !important;
+}
+.headerBtn:nth-child(3){
+    background-color: #07689F !important;
+    color: white !important;
+}

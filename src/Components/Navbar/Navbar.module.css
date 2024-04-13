@@ -1,0 +1,23 @@
+.search{
+    position: relative;
+    
+}
+.customSearch {
+    position: absolute;
+    top:50%;
+    right:1rem;
+    transform: translateY(-50%);
+    width:24px;
+    height:24px;
+}
+.yourAccount{
+    margin: 0;
+    font-family:'popEXBold';
+    color: #043E5F;
+    font-size: 14px;
+}
+.accountName{
+    color:#07689F;
+    font-size: 12px;
+    font-family: 'popReg';
+}

@@ -1,0 +1,13 @@
+.titleDownloads{
+    font-size: 1.5rem;
+    color:#07689F;
+    font-weight: bold;
+}
+div p:nth-child(2){
+    line-height: 0.5px;
+}
+.line{
+    height: 10px;
+    border-bottom: 1px solid gray;
+    color:black;
+}

@@ -1,0 +1,50 @@
+.carouselBackground{
+    background-image: url('../../assets/img/BackReview.svg');
+    background-size: cover;
+}
+.cardColor{
+    background-color: #0c0c0cb2 !important;
+    /* position: absolute;
+    top: 100%;
+    left: 60%;
+    transform: translate(-60%, -100%);
+    width: 100%;
+    height: 50%; */
+}
+.personImg{
+    width: 50% !important;
+    height: 50%;
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */ 
+} 
+.carouselIndicatorContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+.carouselIndicatorContainer .carouselIndicators {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+}
+
+.carouselIndicatorContainer .carouselIndicators li {
+    width: 10px;
+    height: 10px;
+    background-color: transparent; /* Adjust color as needed */
+    border-radius: 50%;
+    margin: 0 5px; /* Adjust spacing between indicators */
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.carouselIndicatorContainer .carouselIndicators li.active {
+    background-color: black; /* Adjust active indicator color */
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}

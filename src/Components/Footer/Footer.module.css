@@ -1,0 +1,14 @@
+.footerSection p:nth-child(3),
+.footerSection p:nth-child(4){
+    margin-bottom: 0.5rem;
+}
+.subscribeBTN{
+    background-color: #07689F !important;
+}
+.imgIcon{
+    background-color: white !important;
+}
+.emailInput{
+    border-left: 0 !important;
+}
+

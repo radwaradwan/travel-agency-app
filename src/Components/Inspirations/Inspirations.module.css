@@ -1,0 +1,40 @@
+.topTitle{
+    position: absolute;
+    left:15%;
+    top: 15%;
+    transform: translate(-15%,-15%);
+    font-weight: bolder;
+    color:white;
+}
+.fTopTitle{
+    font-size: 2rem;
+
+}
+.sTopTitle{
+    line-height: 0.1;
+
+}
+.fBottomTitle{
+    position: absolute;
+    right:5%;
+    bottom: 15%;
+    transform: translate(-5%,-15%);
+    color:white;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+.sBottomTitle{
+    position: absolute;
+    right: 8%;
+    bottom: 8%;
+    transform: translate(-8%, -8%);
+    color: white;
+    font-size: 1.3rem;
+}
+.readMoreArrow{
+    position: absolute;
+    right: 6%;
+    bottom: 11%;
+    transform: translate(-6%, -11%);
+}

@@ -1,0 +1,11 @@
+.dealsContainer{
+    position: relative;
+}
+.discoverDeals{
+    position: absolute;
+    bottom:8%;
+    left:5%;
+    background-color: #0c0c0cb2;
+    color:white;
+    border-radius: 5px;
+}

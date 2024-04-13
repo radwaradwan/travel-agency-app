@@ -1,0 +1,27 @@
+body{
+    background-color: #f9f9f9 !important;
+}
+@font-face {
+    font-family: 'popExBold';
+    src: url('../fonts/Poppins-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'popBold';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'popSemiBold';
+    src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'popReg';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'popMedium';
+    src: url('../fonts/Poppins-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'popLight';
+    src: url('../fonts/Poppins-Light.ttf') format('truetype');
+}
