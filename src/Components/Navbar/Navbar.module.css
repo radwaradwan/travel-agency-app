@@ -21,3 +21,9 @@
     font-size: 12px;
     font-family: 'popReg';
 }
+
+@media screen and (max-width: 575.98px) {
+    .profile {
+        display: none;
+    }
+}

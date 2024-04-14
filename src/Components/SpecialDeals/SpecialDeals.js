@@ -21,56 +21,56 @@ function SpecialDeals() {
                     </div>
                     <div>
                         <div className='d-flex flex-column flex-md-row'>
-                            <div className={` flex-grow-2 pe-0 ${styles.dealsContainer}`}>
-                                <img src={p1} alt='1' className={`w-100 ${styles.img1}`}/>
-                                <div className={`d-flex p-2 ${styles.discoverDeals}`}>
-                                    <img src={arrowDown} alt='arrowDown' className='px-1'/>
-                                    <p className='px-2 my-auto'>Deals Discover</p>
-                                    <img src={arrow} alt='arrow' className='px-1'/>
-                                </div>
-                            </div>
-                            <div className={`flex-grow-1 pe-0 ps-1 ${styles.dealsContainer}`}>
-                                <img src={p2} alt='2' className={`w-100 ${styles.img1}`}/>
-                                <div className={`d-flex p-2 ${styles.discoverDeals}`}>
-                                    <img src={arrowDown} alt='arrowDown' className='px-1'/>
-                                    <p className='px-2 my-auto'>Deals Discover</p>
-                                    <img src={arrow} alt='arrow' className='px-1'/>
-                                </div>
-                            </div>
-                            <div className={`flex-grow-2 pe-0 ps-1 ${styles.dealsContainer}`}>
-                                <img src={p3} alt='3' className={`w-100 ${styles.img1}`}/>
-                                <div className={`d-flex p-2 ${styles.discoverDeals}`}>
-                                    <img src={arrowDown} alt='arrowDown' className='px-1'/>
-                                    <p className='px-2 my-auto'>Deals Discover</p>
-                                    <img src={arrow} alt='arrow' className='px-1'/>
-                                </div>
+                        <div className={` flex-grow-2 pe-0 pb-2 pb-md-0 ${styles.dealsContainer}`}>
+                            <img src={p1} alt='1' className={styles.img1}/>
+                            <div className={`d-flex p-2 ${styles.discoverDeals}`}>
+                                <img src={arrowDown} alt='arrowDown' className='px-1'/>
+                                <p className='px-2 my-auto'>Deals Discover</p>
+                                <img src={arrow} alt='arrow' className='px-1'/>
                             </div>
                         </div>
+                        <div className={`flex-grow-1 pe-0 ps-md-1 pb-2 pb-md-0 ${styles.dealsContainer}`}>
+                            <img src={p2} alt='2' className={styles.img1}/>
+                            <div className={`d-flex p-2 ${styles.discoverDeals}`}>
+                                <img src={arrowDown} alt='arrowDown' className='px-1'/>
+                                <p className='px-2 my-auto'>Deals Discover</p>
+                                <img src={arrow} alt='arrow' className='px-1'/>
+                            </div>
+                        </div>
+                        <div className={`flex-grow-2 pe-0 ps-md-1 pb-2 pb-md-0 ${styles.dealsContainer}`}>
+                            <img src={p3} alt='3' className={styles.img1}/>
+                            <div className={`d-flex p-2 ${styles.discoverDeals}`}>
+                                <img src={arrowDown} alt='arrowDown' className='px-1'/>
+                                <p className='px-2 my-auto'>Deals Discover</p>
+                                <img src={arrow} alt='arrow' className='px-1'/>
+                            </div>
+                        </div>
+                        </div>
                         <div className='mb-2 d-flex flex-column flex-md-row'>
-                            <div className={`flex-grow-2 pe-0 ${styles.dealsContainer}`}>
-                                <img src={p4} alt='4' className={`w-100 ${styles.img1}`}/>
-                                <div className={`d-flex p-2 ${styles.discoverDeals}`}>
-                                    <img src={arrowDown} alt='arrowDown' className='px-1'/>
-                                    <p className='px-2 my-auto'>Deals Discover</p>
-                                    <img src={arrow} alt='arrow' className='px-1'/>
-                                </div>
+                        <div className={`flex-grow-2 pe-0 pb-2 pb-md-0 ${styles.dealsContainer}`}>
+                            <img src={p4} alt='4' className={styles.img1}/>
+                            <div className={`d-flex p-2 ${styles.discoverDeals}`}>
+                                <img src={arrowDown} alt='arrowDown' className='px-1'/>
+                                <p className='px-2 my-auto'>Deals Discover</p>
+                                <img src={arrow} alt='arrow' className='px-1'/>
                             </div>
-                            <div className={`flex-grow-1 pe-0 ps-1 ${styles.dealsContainer}`}>
-                                <img src={p5} alt='5' className={`w-100 ${styles.img1}`}/>
-                                <div className={`d-flex p-2 ${styles.discoverDeals}`}>
-                                    <img src={arrowDown} alt='arrowDown' className='px-1'/>
-                                    <p className='px-2 my-auto'>Deals Discover</p>
-                                    <img src={arrow} alt='arrow' className='px-1'/>
-                                </div>
+                        </div>
+                        <div className={`flex-grow-1 pe-0 ps-md-1 pb-2 pb-md-0 ${styles.dealsContainer}`}>
+                            <img src={p5} alt='5' className={styles.img1}/>
+                            <div className={`d-flex p-2 ${styles.discoverDeals}`}>
+                                <img src={arrowDown} alt='arrowDown' className='px-1'/>
+                                <p className='px-2 my-auto'>Deals Discover</p>
+                                <img src={arrow} alt='arrow' className='px-1'/>
                             </div>
-                            <div className={`flex-grow-1 pe-0 ps-1 ${styles.dealsContainer}`}>
-                                <img src={p6} alt='6' className={`w-100 ${styles.img1}`}/>
-                                <div className={`d-flex p-2 ${styles.discoverDeals}`}>
-                                    <img src={arrowDown} alt='arrowDown' className='px-1'/>
-                                    <p className='px-2 my-auto'>Deals Discover</p>
-                                    <img src={arrow} alt='arrow' className='px-1'/>
-                                </div>
+                        </div>
+                        <div className={`flex-grow-1 pe-0 ps-md-1 pb-2 pb-md-0 ${styles.dealsContainer}`}>
+                            <img src={p6} alt='6' className={styles.img1}/>
+                            <div className={`d-flex p-2 ${styles.discoverDeals}`}>
+                                <img src={arrowDown} alt='arrowDown' className='px-1'/>
+                                <p className='px-2 my-auto'>Deals Discover</p>
+                                <img src={arrow} alt='arrow' className='px-1'/>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
