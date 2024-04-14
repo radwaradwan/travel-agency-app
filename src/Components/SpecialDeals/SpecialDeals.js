@@ -20,8 +20,8 @@ function SpecialDeals() {
                         <p className="lh-1 mb-4 fw-bold">Find Hot Stays!</p>
                     </div>
                     <div>
-                        <div className='d-flex'>
-                            <div className={`flex-grow-2 pe-0 ${styles.dealsContainer}`}>
+                        <div className='d-flex flex-column flex-md-row'>
+                            <div className={` flex-grow-2 pe-0 ${styles.dealsContainer}`}>
                                 <img src={p1} alt='1' className={`w-100 ${styles.img1}`}/>
                                 <div className={`d-flex p-2 ${styles.discoverDeals}`}>
                                     <img src={arrowDown} alt='arrowDown' className='px-1'/>
@@ -46,7 +46,7 @@ function SpecialDeals() {
                                 </div>
                             </div>
                         </div>
-                        <div className='mb-2 d-flex'>
+                        <div className='mb-2 d-flex flex-column flex-md-row'>
                             <div className={`flex-grow-2 pe-0 ${styles.dealsContainer}`}>
                                 <img src={p4} alt='4' className={`w-100 ${styles.img1}`}/>
                                 <div className={`d-flex p-2 ${styles.discoverDeals}`}>
