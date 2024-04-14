@@ -4,20 +4,20 @@ import styles from './Carousel.module.css'; // Import your custom CSS module
 
 // Sample images
 import person1 from '../../assets/img/person1.svg';
-// import person2 from '../../assets/img/person2.svg';
-// import person3 from '../../assets/img/person3.svg';
+import person2 from '../../assets/img/person2.svg';
+import person3 from '../../assets/img/person3.svg';
 
 // Sample data for cards
 const cards1 = [
-    {title: 'Title 1', description: 'Description 1' },
-    {title: 'Title 2', description: 'Description 2' },
-    { title: 'Title 3', description: 'Description 3' }
+    {img : person1 , title: 'Teacher Terece', description: 'Returning to this hotel is always a delight – their loyalty program showers us with exclusive discounts and amazing perks!' },
+    {img : person2 ,title: 'BEYU68£', description: 'Accessing Mina Voyages extraordinary special offers makes always our journey even more unforgettable.' },
+    {img : person3 ,title: 'Elina13ay', description: 'Weekends here are pure bliss with their carefully crafted packages, and the extended stay discounts make relaxation even more enticing.' }
 ];
 
 const cards2 = [
-    { title: 'Title 4', description: 'Description 4' },
-    {title: 'Title 5', description: 'Description 5' },
-    {title: 'Title 6', description: 'Description 6' }
+    {img : person1 , title: 'Title 4', description: 'Description 4' },
+    {img : person2 , title: 'Title 5', description: 'Description 5' },
+    {img : person3 ,title: 'Title 6', description: 'Description 6' }
 ];
 
 function CarouselComponent() {
@@ -62,12 +62,12 @@ function CarouselComponent() {
                                         {cards1.map((card, index) => (
                                             <div key={index} className='col-md-4 px-4 position-relative'>
                                                 <div className='d-flex justify-content-center'>
-                                                    <img src={person1} className={`rounded-circle ${styles.personImg}`} alt={`Person ${index}`} />
+                                                    <img src={card.img} className={`rounded-circle ${styles.personImg}`} alt={`Person ${index}`} />
                                                 </div>
                                                 <div key={index} className={`card pt-5 p-1 ${styles.cardColor}`}>
                                                     <div className="card-body text-white">
                                                         <h5 className="card-title">{card.title}</h5>
-                                                        <p className="card-text">{card.description}</p>
+                                                        <div className="card-text">{card.description}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,12 +85,12 @@ function CarouselComponent() {
                                         {cards2.map((card, index) => (
                                             <div key={index} className='col-md-4 px-4 position-relative'>
                                                 <div className='d-flex justify-content-center'>
-                                                    <img src={person1} className={`rounded-circle ${styles.personImg}`} alt={`Person ${index}`} />
+                                                    <img src={card.img} className={`rounded-circle ${styles.personImg}`} alt={`Person ${index}`} />
                                                 </div>
                                                 <div key={index} className={`card pt-5 p-1 ${styles.cardColor}`}>
                                                     <div className="card-body text-white">
                                                         <h5 className="card-title">{card.title}</h5>
-                                                        <p className="card-text">{card.description}</p>
+                                                        <div className="card-text">{card.description}</div>
                                                     </div>
                                                 </div>
                                             </div>
