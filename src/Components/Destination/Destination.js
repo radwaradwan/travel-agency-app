@@ -115,10 +115,10 @@ function Destination() {
         const rowCards = cards.slice(startIdx, endIdx);
 
         return (
-            <div key={rowIndex} className="row mb-3">
+            <div key={rowIndex} className="row mb-lg-3">
                 {rowCards.map((card,idx) => (
                     <div key={idx} className="col-md-3">
-                        <div className="card p-2">
+                        <div className="card p-2 mb-sm-3 mb-0">
                             <div className="position-relative">
                                 <img src={card.image} className="card-img-top" alt={card.title} />
                                 <div className="position-absolute top-0 start-0 mt-2 ms-2">
