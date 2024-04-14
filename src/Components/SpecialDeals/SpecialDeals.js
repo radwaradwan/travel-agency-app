@@ -21,7 +21,7 @@ function SpecialDeals() {
                     </div>
                     <div>
                         <div className='row mb-1'>
-                            <div className={`col-md-auto pe-0 ps-1 ${styles.dealsContainer}`}>
+                            <div className={`col-sm-12 col-md-auto pe-0 ps-1 ${styles.dealsContainer}`}>
                                 <img src={p1} alt='1'/>
                                 <div className={`d-flex p-2 ${styles.discoverDeals}`}>
                                     <img src={arrowDown} alt='arrowDown' className='px-1'/>
@@ -29,7 +29,7 @@ function SpecialDeals() {
                                     <img src={arrow} alt='arrow' className='px-1'/>
                                 </div>
                             </div>
-                            <div className={`col-md-auto pe-0 ps-1 ${styles.dealsContainer}`}>
+                            <div className={`col-sm-12 col-md-auto pe-0 ps-1 ${styles.dealsContainer}`}>
                                 <img src={p2} alt='2'/>
                                 <div className={`d-flex p-2 ${styles.discoverDeals}`}>
                                     <img src={arrowDown} alt='arrowDown' className='px-1'/>
@@ -37,7 +37,7 @@ function SpecialDeals() {
                                     <img src={arrow} alt='arrow' className='px-1'/>
                                 </div>
                             </div>
-                            <div className={`col-md-auto pe-0 ps-1 ${styles.dealsContainer}`}>
+                            <div className={`col-sm-12 col-md-auto pe-0 ps-1 ${styles.dealsContainer}`}>
                                 <img src={p3} alt='3'/>
                                 <div className={`d-flex p-2 ${styles.discoverDeals}`}>
                                     <img src={arrowDown} alt='arrowDown' className='px-1'/>
