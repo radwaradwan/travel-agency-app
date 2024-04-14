@@ -1,7 +1,7 @@
 .imgContainer{
     position: relative;
 }
-.mainImg{
+.flightImg{
     width:100%;
 }
 .textOverlay{
@@ -49,4 +49,22 @@ button{
 .searchBtnOverlay{
     border: 3px solid #2f83b2 !important;
     background-color: #2f83b2 !important;
+}
+
+@media screen and (max-width: 767px) {
+    .flightImg {
+        min-width: 30vh;
+        height: 430px;
+    }
+    .inputsBook{
+        top:45%;
+        left:0;
+    }
+    .searchBtnOverlay{
+        width: 100%;
+    }
+    .textOverlay{
+        left:5%;
+        top:10%;
+    }
 }

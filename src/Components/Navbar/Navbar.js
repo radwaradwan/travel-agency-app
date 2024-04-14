@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <div className="d-flex">
+        <div className="w-100 d-flex align-items-md-center">
           <a className="navbar-brand me-5 ms-3 ms-md-5 order-2 order-md-0" href="##">
             <img src={logo} alt="logo" className={styles.logo} />
           </a>
@@ -28,11 +28,11 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className={`collapse navbar-collapse ${showNavbar ? "show" : ""}`}>
-            <form className={`col-lg-5 col-md-12 d-flex position-relative ${styles.search}`}>
+            <form className={`mx-md-5 col-md-6 d-flex position-relative ${styles.search}`}>
               <input className="form-control me-2 flex-grow-1" type="search" />
               <img src={search} alt="search" className={styles.customSearch} />
             </form>
-            <ul className={`navbar-nav ${styles.navItems}`}>
+            <ul className={`navbar-nav  ${styles.navItems}`}>
               <li className="nav-item">
                 <a className="nav-link" href="##">
                   <img src={England} alt="logo" className="me-2" />
