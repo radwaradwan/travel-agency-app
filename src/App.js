@@ -7,7 +7,7 @@ import Destination from "./Components/Destination/Destination"
 import PastOffers from "./Components/PastOffers/PastOffers"
 import Inspirations from "./Components/Inspirations/Inspirations"
 import Voyages from "./Components/Voyages/Voyages"
-// import BackReview from "./Components/BackReview/BackReview"
+import BackReview from "./Components/BackReview/BackReview"
 import CarouselComponent from "./Components/Carousel/Carousel"
 import Downloads from "./Components/Downloads/Downloads"
 import Footer from "./Components/Footer/Footer"
@@ -17,6 +17,7 @@ function App() {
     <>
     <Navbar/>
     <Header/>
+    <BackReview/>
     <FlightSection/>
     <SpecialDeals/>
     <Destination/>

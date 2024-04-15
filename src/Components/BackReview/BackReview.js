@@ -1,91 +1,70 @@
-import React,{useState} from 'react'
-import backReview from '../../assets/img/BackReview.svg'
-import person1 from '../../assets/img/person1.svg'
-import person2 from '../../assets/img/person2.svg'
-import person3 from '../../assets/img/person3.svg'
+import React, { useState } from 'react';
 
+function Dashboard() {
+    const [showModal, setShowModal] = useState(false);
 
-function BackReview() {
-        function CircleCard({ imageSrc, title, description }) {
-            return (
-            <div className="card">
-                <img src={imageSrc} className="card-img-top rounded-circle" alt="Circle" />
-                <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">{description}</p>
-                </div>
-            </div>
-            );
-        }
-        
-        function Carousel({ cards }) {
-            return (
-                <div className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-inner">
-                    {cards.map((card, index) => (
-                    <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                        <div className="d-flex justify-content-around">
-                        {card.map((item, i) => (
-                            <div className="col-md-4" key={i}>
-                            <CircleCard {...item} />
-                            </div>
-                        ))}
-                        </div>
-                    </div>
-                    ))}
-                </div>
-                </div>
-            );
-        }
+    const handleAddButtonClick = () => {
+        setShowModal(true);
+    };
 
-        const [showSecondCarousel, setShowSecondCarousel] = useState(false);
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
-        const cards1 = [
-            { imageSrc: person1, title: 'Title 1', description: 'Description 1' },
-            { imageSrc: person2, title: 'Title 2', description: 'Description 2' },
-            { imageSrc: person3, title: 'Title 3', description: 'Description 3' }
-        ];
-        
-        const cards2 = [
-            { imageSrc: person1, title: 'Title 4', description: 'Description 4' },
-            { imageSrc: person2, title: 'Title 5', description: 'Description 5' },
-            { imageSrc: person3, title: 'Title 6', description: 'Description 6' }
-        ];
     return (
-        <section>
-            <div className='mb-5'>
-                <img src={backReview} alt='backReview' className='w-100'/>
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
-                        <Carousel cards={[cards1]} />
-                        {showSecondCarousel && <Carousel cards={[cards2]} />}
-                        </div>
+        <div>
+        <button className="btn btn-primary" onClick={handleAddButtonClick}>
+            Add
+        </button>
+
+        {showModal && (
+            <div className="modal" tabIndex="-1" role="dialog" style={{ display: 'block', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title">Add Item</h5>
+                    <button type="button" className="close" onClick={handleCloseModal} aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div className="modal-body">
+                    <form>
+                    <div className="form-group">
+                        <label htmlFor="imageInput">Image</label>
+                        <input type="file" className="form-control-file" id="imageInput" />
                     </div>
-                    <div className="row mt-3">
-                        <div className="col">
-                        <div className="btn-group" role="group" aria-label="Carousel Navigation">
-                            <button
-                            type="button"
-                            className={`btn btn-secondary ${!showSecondCarousel ? 'active' : ''}`}
-                            onClick={() => setShowSecondCarousel(false)}
-                            >
-                            1
-                            </button>
-                            <button
-                            type="button"
-                            className={`btn btn-secondary ${showSecondCarousel ? 'active' : ''}`}
-                            onClick={() => setShowSecondCarousel(true)}
-                            >
-                            2
-                            </button>
-                        </div>
-                        </div>
+                    <div className="form-group">
+                        <label htmlFor="titleInput">Title</label>
+                        <input type="text" className="form-control" id="titleInput" />
                     </div>
+                    <div className="form-group">
+                        <label htmlFor="rateInput">Rate</label>
+                        <input type="number" className="form-control" id="rateInput" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="startDateInput">Start Date</label>
+                        <input type="date" className="form-control" id="startDateInput" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="endDateInput">End Date</label>
+                        <input type="date" className="form-control" id="endDateInput" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="descriptionInput">Description</label>
+                        <textarea className="form-control" id="descriptionInput" rows="3"></textarea>
+                    </div>
+                    </form>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
+                    <button type="button" className="btn btn-primary">Add</button>
+                </div>
                 </div>
             </div>
-        </section>
+            </div>
+        )}
+        </div>
     );
 }
 
-export default BackReview
+export default Dashboard;

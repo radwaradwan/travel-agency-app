@@ -33,20 +33,19 @@
 ::placeholder{
     font-size: 12px;
 }
-form input:nth-child(2){
+.flightInput{
     border-left: none !important;
     border-right: none !important;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
 }
-button{
-    border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
-}
+
 .inputContainer{
     border: 2px solid #2f83b2;
 }
 .searchBtnOverlay{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
     border: 3px solid #2f83b2 !important;
     background-color: #2f83b2 !important;
 }

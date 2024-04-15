@@ -1,0 +1,50 @@
+.destination{
+    color:#07689F;
+}
+.add{
+    background-color: #07689F;
+    color:white;
+}
+table {
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+th,td {
+    padding: 15px;
+    color: black;
+    text-align: center;
+}
+
+thead th{
+    background-color: #07689F;
+    color: white;
+}
+
+tbody tr:hover{
+    background-color: #89a1f059;
+}
+
+/* tbody {
+    td {
+        position: relative;
+        &:hover {
+            &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            z-index: -1;
+        }
+        }
+    }
+} */
+
+@media screen and (max-width: 991px) {
+th,td {
+    padding: 3%;
+}
+}

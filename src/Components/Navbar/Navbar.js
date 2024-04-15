@@ -9,6 +9,9 @@ import Phone from "../../assets/img/Phone.svg";
 import Photo from "../../assets/img/Photo.svg";
 import ques from "../../assets/img/ques.svg";
 import search from "../../assets/img/search.svg";
+import dashboard from '../../assets/img/dashboard.svg'
+import home from '../../assets/img/home.svg'
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -28,15 +31,15 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className={`collapse navbar-collapse ${showNavbar ? "show" : ""}`}>
-            <form className={`mx-md-5 col-md-6 d-flex position-relative ${styles.search}`}>
+            <form className={`me-md-5 ms-md-4 col-md-6 d-flex position-relative ${styles.search}`}>
               <input className="form-control me-2 flex-grow-1" type="search" />
               <img src={search} alt="search" className={styles.customSearch} />
             </form>
             <ul className={`navbar-nav  ${styles.navItems}`}>
               <li className="nav-item">
-                <a className="nav-link" href="##">
-                  <img src={England} alt="logo" className="me-2" />
-                </a>
+                <NavLink className="nav-link" to="/">
+                  <img src={home} alt="logo" className={`me-2 ${styles.home} `} />
+                </NavLink>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="##">
@@ -58,17 +61,27 @@ function Navbar() {
                   <img src={Phone} alt="logo" className="me-2" />
                 </a>
               </li>
+              <li className="nav-item">
+                <a className="nav-link" href="##">
+                  <img src={England} alt="logo" className="me-2" />
+                </a>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Dashboard">
+                  <img src={dashboard} alt="logo" className={`me-2 ${styles.dashboard} `} />
+                </NavLink>
+              </li>
             </ul>
           </div>
-          <div className="d-flex order-3 order-md-0 ms-5 ms-md-0">
-              <a className="nav-link" href="##">
-                <img src={Photo} alt="logo" className="me-2" />
-              </a>
-              <div className={styles.profile}>
-                <p className={styles.yourAccount}>Your Account</p>
-                <p className={`lh-1 m-0 ${styles.accountName}`}>Anna Carinna</p>
+          <div className="d-flex order-3 order-md-0 ms-md-0">
+                <a className="nav-link" href="##">
+                  <img src={Photo} alt="logo" className="me-md-2 " />
+                </a>
+                <div className={styles.profile}>
+                  <p className={styles.yourAccount}>Your Account</p>
+                  <p className={`lh-1 m-0 ${styles.accountName}`}>Anna Carinna</p>
                 </div>
-          </div>
+              </div>
         </div>
         
       </div>
