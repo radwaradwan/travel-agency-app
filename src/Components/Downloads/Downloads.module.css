@@ -11,3 +11,8 @@ div p:nth-child(2){
     border-bottom: 1px solid gray;
     color:black;
 }
+@media screen and (max-width:767px) {
+    div p:nth-child(2){
+        line-height: normal;
+    }
+}
