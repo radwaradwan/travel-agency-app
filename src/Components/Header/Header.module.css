@@ -14,3 +14,14 @@
     background-color: #07689F !important;
     color: white !important;
 }
+@media screen and (max-width: 767px) {
+  /* .Header{
+    overflow-x: scroll;
+  } */
+  @media screen and (max-width: 767px) {
+    .Header {
+      overflow-x: auto; 
+      scrollbar-width: none;
+    }
+  }
+}
