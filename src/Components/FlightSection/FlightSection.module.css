@@ -1,8 +1,8 @@
 .imgContainer{
     position: relative;
-}
-.flightImg{
-    width:100%;
+    background-image: url('../../assets/img/flight.png');
+    height: 500px;
+    background-size: cover;
 }
 .textOverlay{
     position: absolute;
@@ -52,19 +52,15 @@ button{
 }
 
 @media screen and (max-width: 767px) {
-    .flightImg {
-        min-width: 30vh;
-        height: 430px;
-    }
     .inputsBook{
-        top:45%;
+        top:50%;
         left:0;
     }
     .searchBtnOverlay{
         width: 100%;
     }
     .textOverlay{
-        left:5%;
-        top:10%;
+        left:4%;
+        top:12%;
     }
 }

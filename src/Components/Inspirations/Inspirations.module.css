@@ -1,3 +1,9 @@
+.inspirationImg{
+    background-image: url('../../assets/img/Inspiration.svg');
+    height: 500px;
+    background-size: cover;
+}
+
 .topTitle{
     position: absolute;
     left:15%;

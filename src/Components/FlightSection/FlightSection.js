@@ -1,5 +1,5 @@
 import React from 'react'
-import flight from '../../assets/img/flight.png'
+// import flight from '../../assets/img/flight.png'
 import styles from './FlightSection.module.css'
 import hotel from '../../assets/img/hotel.svg'
 import calender from '../../assets/img/calendar.svg'
@@ -9,9 +9,6 @@ function FlightSection() {
     return (
         <section>
             <div className={styles.imgContainer}>
-                <div>
-                    <img src={flight} alt='flight' className={styles.flightImg}/>
-                </div>
                 <div>
                     <div className={styles.textOverlay}>
                         <p>Discover Your Trips </p>
