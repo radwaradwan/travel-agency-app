@@ -1,14 +1,13 @@
 .inspirationImg{
     background-image: url('../../assets/img/Inspiration.svg');
-    height: 500px;
+    height: 550px;
     background-size: cover;
 }
 
 .topTitle{
     position: absolute;
-    left:15%;
-    top: 15%;
-    transform: translate(-15%,-15%);
+    left:7%;
+    top: 17%;
     font-weight: bolder;
     color:white;
 }
@@ -18,13 +17,11 @@
 }
 .sTopTitle{
     line-height: 0.1;
-
 }
 .fBottomTitle{
     position: absolute;
-    right:5%;
-    bottom: 15%;
-    transform: translate(-5%,-15%);
+    right:6%;
+    bottom: 22%;
     color:white;
     font-size: 3rem;
     font-weight: bolder;
@@ -33,14 +30,33 @@
 .sBottomTitle{
     position: absolute;
     right: 8%;
-    bottom: 8%;
-    transform: translate(-8%, -8%);
+    bottom: 14%;
+    /* transform: translate(-8%, -8%); */
     color: white;
     font-size: 1.3rem;
 }
 .readMoreArrow{
     position: absolute;
     right: 6%;
-    bottom: 11%;
-    transform: translate(-6%, -11%);
+    bottom: 17%;
+    /* transform: translate(-6%, -11%); */
+}
+
+@media screen and (max-width: 767px) {
+    .topTitle{
+        top:5%;
+    }
+    .fBottomTitle{
+        bottom:15%;
+        left:7%;
+        right: 0;
+    }
+    .sBottomTitle{
+        bottom:6%;
+        left:7%;
+    }
+    .readMoreArrow{
+        bottom:9%;
+        left:35%;
+    }
 }
