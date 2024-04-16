@@ -5,14 +5,15 @@ function DashboardTable() {
         <div className ={`container-fluid p-5`}>
             <div className='d-flex justify-content-between align-items-center mb-2'> 
                 <h1 className={`${styles.destination}`}>Destinations</h1>
-                <button className={`btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="AddDestinationModal">Add Destination</button>
+                <button className={`btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="#AddDestinationModal">Add Destination</button>
                 {/* modal for add button */}
-                <div className="modal" id="AddDestinationModal">
+                <div className="modal fade" id="AddDestinationModal" tabIndex="-1" aria-labelledby="AddDestinationModalLabel" aria-hidden="true">
+                    console.log("jjjjjjs");
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+                                <h1 className="modal-title fs-5" id="AddDestinationModalLabel">Modal title</h1>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
                                 <form>
