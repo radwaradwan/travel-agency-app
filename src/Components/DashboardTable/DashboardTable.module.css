@@ -22,6 +22,10 @@ thead th{
     background-color: #07689F;
     color: white;
 }
+tbody tr td img{
+    width:60px;
+    height:60px;
+}
 
 tbody tr:hover{
     background-color: #89a1f059;

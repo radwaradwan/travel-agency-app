@@ -1,55 +1,80 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styles from './DashboardTable.module.css'
+import Modal from '../Modal/Modal';
+import axios from 'axios';
+
 function DashboardTable() {
+    // const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [modalMode, setModalMode] = useState("add");
+    // const [currentObject, setCurrentObject] = useState(null);
+    const [destinations,setDestinations]= useState([]);
+
+    // const handleAdd = () => {
+    //     setModalMode("add");
+    //     setIsModalOpen(true);
+    //     document.body.classList.add('modal-open'); // Add 'modal-open' class to body when modal is open
+    // };
+
+    // const handleEdit = (object) => {
+    //     setModalMode("edit");
+    //     setCurrentObject(object);
+    //     setIsModalOpen(true);
+    // };
+
+    // const handleCloseModal = () => {
+    //     // setIsModalOpen(false);
+    //     // setCurrentObject(null);
+    //     document.body.classList.remove('modal-open'); // Add 'modal-open' class to body when modal is open
+    // };
+
+    const addDestination = async (destination) => {
+        try {
+            // Post data to API
+            const response = await axios.post("https://661d850798427bbbef020a05.mockapi.io/Destination", destination);
+            console.log(response);
+            setDestinations((prevDestination)=>[...prevDestination,response.data])
+            console.log("nnnnnnnnnnnnnnnn",destinations);
+        } catch (error) {
+            console.error('Error adding Destination:', error);
+        }
+    };
+
+    useEffect(() => {fetchData()},[]);
+
+    const fetchData = async () => {
+        try {
+        // get data from the Api
+        const response = await axios.get("https://661d850798427bbbef020a05.mockapi.io/Destination");
+        // append all users to the setUsers as an array
+        setDestinations(response.data);
+        console.log(response.data);
+        console.log("nnnn",destinations);
+        } catch (error) {
+        console.error("Error fetching data:", error);
+        }
+    };
+
+    const deleteDestination= async (destinationId) => {
+        try {
+            await axios.delete(`https://661d850798427bbbef020a05.mockapi.io/Destination/${destinationId}`);
+            setDestinations(destinations.filter(destination => destination.id !== destinationId));
+        } catch (error) {
+            console.error('Error deleting Destination:', error);
+        }
+    };
+
+
     return (
         <div className ={`container-fluid p-5`}>
             <div className='d-flex justify-content-between align-items-center mb-2'> 
                 <h1 className={`${styles.destination}`}>Destinations</h1>
-                <button className={`btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="#AddDestinationModal">Add Destination</button>
-                {/* modal for add button */}
-                <div className="modal fade" id="AddDestinationModal" tabIndex="-1" aria-labelledby="AddDestinationModalLabel" aria-hidden="true">
-                    console.log("jjjjjjs");
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h1 className="modal-title fs-5" id="AddDestinationModalLabel">Modal title</h1>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div className="modal-body">
-                                <form>
-                                    <div className="form-group d-flex flex-column">
-                                        <img src="/" alt='no choosen img'/>
-                                        <input type="file" className="form-control-file" id="imageInput" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="titleInput">Title</label>
-                                        <input type="text" className="form-control" id="titleInput" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="rateInput">Rate</label>
-                                        <input type="number" className="form-control" id="rateInput" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="startDateInput">Start Date</label>
-                                        <input type="date" className="form-control" id="startDateInput" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="endDateInput">End Date</label>
-                                        <input type="date" className="form-control" id="endDateInput" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="descriptionInput">Description</label>
-                                        <textarea className="form-control" id="descriptionInput" rows="3"></textarea>
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button className={`btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="#AddDestinationModal" >Add Destination</button>
+                <Modal 
+                modalId="AddDestinationModal"
+                // mode={modalMode}
+                // currentObject={currentObject}
+                onAddSubmit={addDestination}/>
+                {/* modal for add button */}   
             </div>
             {/* table content */}
             <table>
@@ -65,15 +90,19 @@ function DashboardTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>hello</td>
-                        <td>hello</td>
-                        <td>hello</td>
-                        <td>hello</td>
-                        <td>hello</td>
-                        <td>hello</td>
-                        <td>hello</td>
-                    </tr>
+                {destinations.map((destination ) => (
+                    <tr key={destination.id}>
+                    <td><img src={destination.image} alt='detination'/></td>
+                    <td>{destination.title}</td>
+                    <td>{destination.rate}</td>
+                    <td>{destination.startDate}</td>
+                    <td>{destination.endDate}</td>
+                    <td>{destination.description}</td>
+                    <td><button className="btn btn-primary" onClick={() => deleteDestination(destination.id)}>delete</button></td>
+                    {/*<td><button className="btn btn-primary" onClick={() => handleEdit(objectToEdit)}>Edit</button></td>*/}
+                </tr>
+                ))}
+                    
                 </tbody>
             </table>
         </div>
