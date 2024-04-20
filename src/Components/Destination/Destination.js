@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import styles from './Destination.module.css'
 import pic1 from '../../assets/img/pic1.svg'
 import pic2 from '../../assets/img/pic2.svg'
@@ -15,11 +15,11 @@ import pic12 from '../../assets/img/pic12.svg'
 import heart from '../../assets/img/Heart.svg'
 import number from '../../assets/img/Number.svg'
 import group from '../../assets/img/Group.svg'
+import axios from "axios";
 
 
 
 function Destination() {
-
     const cards = [
         {
             image: pic1,
@@ -108,11 +108,25 @@ function Destination() {
 
 
     ];
-    const numRows = Math.ceil(cards.length / 4);
+    const [cardsState,setCardsState]=useState(cards);
+    useEffect(() => {fetchData()},[]);
+
+    const fetchData = async () => {
+        try {
+        // get data from the Api
+        const response = await axios.get("https://661d850798427bbbef020a05.mockapi.io/Destination");
+        // append all users to the setUsers as an array
+        setCardsState(prevCards => [...prevCards, ...response.data]);
+        console.log(response.data);
+        } catch (error) {
+        console.error("Error fetching data:", error);
+        }
+    };
+    const numRows = Math.ceil(cardsState.length / 4);
     const generateRow = (rowIndex) => {
         const startIdx = rowIndex * 4;
         const endIdx = startIdx + 4;
-        const rowCards = cards.slice(startIdx, endIdx);
+        const rowCards = cardsState.slice(startIdx, endIdx);
 
         return (
             <div key={rowIndex} className="row mb-lg-3">

@@ -12,6 +12,7 @@ import Downloads from "./Components/Downloads/Downloads"
 import Footer from "./Components/Footer/Footer"
 import Copyright from "./Components/Copyright/Copyright"
 // import Test from "./Components/Test/Testi"
+// import SliderReview from "./Slider/SliderReview"
 function App() {
   return(
     <>
