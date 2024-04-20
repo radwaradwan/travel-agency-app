@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 function Modal({ modalId, mode, currentObject, onAddSubmit }) {
     const [currentDestination, setCurrentDestination] = useState({
@@ -9,12 +9,26 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
         endDate: '',
         description: '',
     });
+    // const [base64Image, setBase64Image] = useState(null);
+
+    // if(mode==="edit"){
+    //     setCurrentDestination(currentObject);
+    //     console.log(currentObject);
+    // }
+    // Update currentDestination when the currentObject changes
+    useEffect(() => {
+        if (mode === "edit") {
+            setCurrentDestination(currentObject);
+        }
+    }, [mode, currentObject]);
 
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
     
         // Call the onAddSubmit prop with the currentDestination
         onAddSubmit(currentDestination);
+
+        
         console.log(currentDestination);
         // Clear the form fields
         setCurrentDestination({
@@ -28,13 +42,24 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
         
     };
 
+    // const handleImageChange = (e) => {
+    //     const file = currentDestination.image.target.files[0];
+    //     if (file) {
+    //         const reader = new FileReader();
+    //         reader.onloadend = () => {
+    //         setBase64Image(reader.result);
+    //         };
+    //         reader.readAsDataURL(file);
+    //         }
+    // }
+
     return (
         <div>
             <div className='modal fade' id={modalId} tabIndex="-1" aria-labelledby="AddDestinationModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="AddDestinationModalLabel">Modal title</h1>
+                            <h5 className="modal-title">{mode === "add" ? "Add Destination" : "Edit Destination"}</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">

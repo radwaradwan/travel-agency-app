@@ -5,9 +5,10 @@ import axios from 'axios';
 
 function DashboardTable() {
     // const [isModalOpen, setIsModalOpen] = useState(false);
-    // const [modalMode, setModalMode] = useState("add");
+    const [modalMode, setModalMode] = useState("add");
     // const [currentObject, setCurrentObject] = useState(null);
     const [destinations,setDestinations]= useState([]);
+    const [editDestination, setEditDestination] = useState(null);
 
     // const handleAdd = () => {
     //     setModalMode("add");
@@ -62,18 +63,41 @@ function DashboardTable() {
             console.error('Error deleting Destination:', error);
         }
     };
+    
+    const updateDestination = async (updatedDestinationData) => {
+        try {
+            const response = await axios.put(`https://661d850798427bbbef020a05.mockapi.io/Destination/${updatedDestinationData.id}`, updatedDestinationData);
+            const updatedDes = destinations.map(destination => {
+                if (destination.id === updatedDestinationData.id) {
+                    return { ...destination, ...response.data };
+                }
+                return destination;
+                });
+            setDestinations(updatedDes);
+        } catch (error) {
+            console.error('Error updating destination:', error);
+        }
+        };
 
+    const handleEdit = (destination) => {
+        setModalMode("edit");
+        setEditDestination(destination);
+    };
+
+    const handleAdd = () => {
+        setModalMode("add");
+    };
 
     return (
         <div className ={`container-fluid p-5`}>
             <div className='d-flex justify-content-between align-items-center mb-2'> 
                 <h1 className={`${styles.destination}`}>Destinations</h1>
-                <button className={`btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="#AddDestinationModal" >Add Destination</button>
+                <button className={`btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={handleAdd} >Add Destination</button>
                 <Modal 
                 modalId="AddDestinationModal"
-                // mode={modalMode}
-                // currentObject={currentObject}
-                onAddSubmit={addDestination}/>
+                mode={modalMode}
+                currentObject={editDestination}
+                onAddSubmit={modalMode==="add"?addDestination:updateDestination}/>
                 {/* modal for add button */}   
             </div>
             {/* table content */}
@@ -98,8 +122,10 @@ function DashboardTable() {
                     <td>{destination.startDate}</td>
                     <td>{destination.endDate}</td>
                     <td>{destination.description}</td>
-                    <td><button className="btn btn-primary" onClick={() => deleteDestination(destination.id)}>delete</button></td>
-                    {/*<td><button className="btn btn-primary" onClick={() => handleEdit(objectToEdit)}>Edit</button></td>*/}
+                    <td>
+                        <button className="btn btn-primary" onClick={() => deleteDestination(destination.id)}>delete</button>
+                        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={() => handleEdit(destination)}>Edit</button>
+                    </td>
                 </tr>
                 ))}
                     
