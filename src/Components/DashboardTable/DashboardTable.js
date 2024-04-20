@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import styles from './DashboardTable.module.css'
 import Modal from '../Modal/Modal';
 import axios from 'axios';
+import DeleteAlert from '../Modal/DeleteAlert';
 
 function DashboardTable() {
     // const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,6 +55,7 @@ function DashboardTable() {
         console.error("Error fetching data:", error);
         }
     };
+
 
     const deleteDestination= async (destinationId) => {
         try {
@@ -123,7 +125,12 @@ function DashboardTable() {
                     <td>{destination.endDate}</td>
                     <td>{destination.description}</td>
                     <td>
-                        <button className="btn btn-primary" onClick={() => deleteDestination(destination.id)}>delete</button>
+                        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteAlertModal">delete</button>
+                        <DeleteAlert
+                            modalId="deleteAlertModal"
+                            deleteDes={deleteDestination}
+                            destination={destination}
+                        />
                         <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={() => handleEdit(destination)}>Edit</button>
                     </td>
                 </tr>
