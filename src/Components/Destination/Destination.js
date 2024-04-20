@@ -115,9 +115,8 @@ function Destination() {
         try {
         // get data from the Api
         const response = await axios.get("https://661d850798427bbbef020a05.mockapi.io/Destination");
-        // append all users to the setUsers as an array
         setCardsState(prevCards => [...prevCards, ...response.data]);
-        console.log(response.data);
+        console.log(...response.data);
         } catch (error) {
         console.error("Error fetching data:", error);
         }
