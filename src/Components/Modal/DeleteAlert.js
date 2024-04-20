@@ -5,7 +5,6 @@ function DeleteAlert({modalId,deleteDes,destination}) {
     const handleDelete = async () => {
         try {
             await deleteDes(destination.id);
-            console.log("aaaaaaaaaaaaaaaaaaaaa",destination);
         } catch (error) {
             console.error('Error deleting Destination:', error);
         }
