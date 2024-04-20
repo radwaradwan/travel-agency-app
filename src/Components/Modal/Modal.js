@@ -1,6 +1,16 @@
 import React, { useState,useEffect } from 'react';
-
+import { toast } from 'react-toastify';
 function Modal({ modalId, mode, currentObject, onAddSubmit }) {
+    const handleAddUpdateAndNotify = () => {
+        if(mode==="add"){
+            toast.success('Destination Added successfully.');
+        }
+        else if (mode==="edit"){
+            toast.success('Destination Updated successfully.');
+        }
+
+    };
+    
     const [currentDestination, setCurrentDestination] = useState({
         image: '',
         title: '',
@@ -90,7 +100,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                                    <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleAddUpdateAndNotify}>Save changes</button>
                                 </div>
                             </form>
                         </div>

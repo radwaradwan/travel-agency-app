@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { toast } from 'react-toastify';
 function DeleteAlert({modalId,deleteDes,destination}) {
+    const notify = () => toast.success('Destination deleted successfully.');
     const handleDelete = async () => {
         try {
             await deleteDes(destination.id);
@@ -8,6 +9,10 @@ function DeleteAlert({modalId,deleteDes,destination}) {
         } catch (error) {
             console.error('Error deleting Destination:', error);
         }
+    };
+    const handleDeleteAndNotify = () => {
+        handleDelete();
+        notify();
     };
     return (
         <div className="modal fade" id={modalId}>
@@ -22,9 +27,9 @@ function DeleteAlert({modalId,deleteDes,destination}) {
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary" onClick={handleDelete} data-bs-dismiss="modal">Delete</button>
+                    <button type="button" className="btn btn-primary" onClick={handleDeleteAndNotify} data-bs-dismiss="modal">Delete</button>
                 </div>
-                </div>
+            </div>
             </div>
         </div>
     )

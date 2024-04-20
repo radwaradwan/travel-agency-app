@@ -3,6 +3,8 @@ import styles from './DashboardTable.module.css'
 import Modal from '../Modal/Modal';
 import axios from 'axios';
 import DeleteAlert from '../Modal/DeleteAlert';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function DashboardTable() {
     // const [isModalOpen, setIsModalOpen] = useState(false);
@@ -138,6 +140,7 @@ function DashboardTable() {
                     
                 </tbody>
             </table>
+            <ToastContainer/>
         </div>
     )
 }
