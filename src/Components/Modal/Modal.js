@@ -63,17 +63,17 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
     //         }
     // }
 
-    // const handleImageChange = (e) => {
-    //     const file = e.target.files[0];
-    //     if (file) {
-    //         const reader = new FileReader();
-    //         reader.onload = () => {
-    //             setCurrentDestination({...currentDestination, image: reader.result});
-    //         };
-    //         console.log(file);
-    //         reader.readAsDataURL(file);
-    //     }
-    // };
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setCurrentDestination({...currentDestination, image: reader.result});
+            };
+            console.log(file);
+            reader.readAsDataURL(file);
+        }
+    };
 
     return (
         <div>
@@ -87,8 +87,8 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
                         <div className="modal-body">
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group d-flex flex-column" >
-                                    <img src="/" alt='no choosen img'/>
-                                    <input type="file" className="form-control-file" id="imageInput" onChange={(e) => setCurrentDestination({...currentDestination, image: e.target.files[0]})} />
+                                    <img src={currentDestination.image} alt='no choosen img'/>
+                                    <input type="file" className="form-control-file" id="imageInput" value={currentDestination.image.name} onChange={handleImageChange} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="titleInput">Title</label>
