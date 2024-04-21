@@ -23,86 +23,88 @@ function Destination() {
     const cards = [
         {
             image: pic1,
-            place:'Berlin',
+            title:'Berlin',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic2,
-            place:'Paris',
+            title:'Paris',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic3,
-            place:'Madrid',
+            title:'Madrid',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic4,
-            place:'Barcelona',
+            title:'Barcelona',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic5,
-            place:'Rom',
+            title:'Rom',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic6,
-            place:'Milan',
+            title:'Milan',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic7,
-            place:'Istanbul',
+            title:'Istanbul',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic8,
-            place:'Dubai',
+            title:'Dubai',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic9,
-            place:'Amesterdam',
+            title:'Amesterdam',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic10,
-            place:'New York',
+            title:'New York',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic11,
-            place:'Marollca',
+            title:'Marollca',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',
+            endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
         {
             image: pic12,
-            place:'Teneriffa',
+            title:'Teneriffa',
             side: 'SIDE',
-            date:'Wed 25 Jan-Fri 27 Jan',
+            startDate:'Wed 25 Jan',
+            endDate: ' Fri 27 Jan',
             description: 'A tour of the city and its surroundings led by a professional guide ...' 
         },
 
@@ -144,9 +146,12 @@ function Destination() {
                             </div>
                             
                             <div className="card-body p-0">
-                                <h5 className="card-title fw-bolder pt-2">{card.place}</h5>
+                                <h5 className="card-title fw-bolder pt-2">{card.title}</h5>
                                 <p className={`card-text lh-1 ${styles.side}`}>{card.side}</p>
-                                <p className="card-text">{card.date}</p>
+                                <div className="d-flex">
+                                    <p className="card-text">{card.startDate} &nbsp; </p>
+                                    <p className="card-text lh-0">{ card.endDate}</p>
+                                </div> 
                                 <p className="card-text fw-lighter lh-1 pb-2">{card.description}</p>
                             </div>
                         </div>

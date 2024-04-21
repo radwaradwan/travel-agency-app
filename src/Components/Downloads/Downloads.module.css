@@ -3,7 +3,7 @@
     color:#07689F;
     font-weight: bold;
 }
-div p:nth-child(2){
+.sBodyDownloads{
     line-height: 0.5px;
 }
 .line{

@@ -56,12 +56,24 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
     //     const file = currentDestination.image.target.files[0];
     //     if (file) {
     //         const reader = new FileReader();
-    //         reader.onloadend = () => {
+    //         reader.onload = () => {
     //         setBase64Image(reader.result);
     //         };
     //         reader.readAsDataURL(file);
     //         }
     // }
+
+    // const handleImageChange = (e) => {
+    //     const file = e.target.files[0];
+    //     if (file) {
+    //         const reader = new FileReader();
+    //         reader.onload = () => {
+    //             setCurrentDestination({...currentDestination, image: reader.result});
+    //         };
+    //         console.log(file);
+    //         reader.readAsDataURL(file);
+    //     }
+    // };
 
     return (
         <div>
@@ -76,7 +88,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group d-flex flex-column" >
                                     <img src="/" alt='no choosen img'/>
-                                    <input type="file" className="form-control-file" id="imageInput" value={currentDestination.image} onChange={(e)=>setCurrentDestination({...currentDestination,image:e.target.files[0]})} />
+                                    <input type="file" className="form-control-file" id="imageInput" onChange={(e) => setCurrentDestination({...currentDestination, image: e.target.files[0]})} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="titleInput">Title</label>

@@ -11,7 +11,7 @@ function Downloads() {
                     <p className={styles.titleDownloads}>Go Further With The Mina Voyages</p>
                     <div className={styles.bodyDownloads}>
                         <p>Enjoy savings on chosen hotels and flights when you book through Mina Voyages website.</p>
-                        <p>Additionally, earn One Key Cash for every booking made through the app.</p>
+                        <p className={styles.sBodyDownloads}>Additionally, earn One Key Cash for every booking made through the app.</p>
                     </div>   
                     <p className='text-muted'>Secured By Europe GTP</p>
                 </div>
