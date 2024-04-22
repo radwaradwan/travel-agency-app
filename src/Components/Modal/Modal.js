@@ -1,8 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import { toast } from 'react-toastify';
 import styles from './Modal.module.css'
+// import { randomNumber } from 'random-number';
 
-function Modal({ modalId, mode, currentObject, onAddSubmit }) {
+function Modal({ modalId, destinationID,mode, currentObject, onAddSubmit }) {
     const handleAddUpdateAndNotify = () => {
         if(mode==="add"){
             toast.success('Destination Added successfully.');
@@ -14,6 +15,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
     };
     
     const [currentDestination, setCurrentDestination] = useState({
+        id:'',
         image: '',
         title: '',
         rate: '',
@@ -29,9 +31,16 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
         }
     }, [mode, currentObject]);
 
+    function getRandomInt(min, max) {
+        min = Math.ceil(min); // Round up to the nearest integer
+        max = Math.floor(max); // Round down to the nearest integer
+        return Math.floor(Math.random() * (max - min + 1)) + min; // Return a random integer within the range
+    }
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
-    
+        
+        currentDestination.id=getRandomInt(1,100000);
+        
         // Call the onAddSubmit prop with the currentDestination
         onAddSubmit(currentDestination);
 
@@ -50,29 +59,29 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
     };
 
 
-    // const handleImageChange = (e) => {
-    //     const file = e.target.files[0];
-    //     if (file) {
-    //         const reader = new FileReader();
-    //         reader.onload = () => {
-    //             setCurrentDestination({...currentDestination, image: reader.result});
-    //         };
-    //         console.log(file);
-    //         reader.readAsDataURL(file);
-    //         console.log("image path",currentDestination.image);
-    //     }
-    // };
-    // const [filePath, setFilePath] = useState('');
-    const handleFileChange = (event) => {
-        const file = event.target.files[0]; // Get the selected file
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
         if (file) {
-          // Extract the path from the file object
-            const path = URL.createObjectURL(file);
-            setCurrentDestination({...currentDestination, image: path});
-            console.log(path);
-            }
+            const reader = new FileReader();
+            reader.onload = () => {
+                setCurrentDestination({...currentDestination, image: reader.result});
+            };
+            console.log(file);
+            reader.readAsDataURL(file);
+            console.log("image path",currentDestination.image);
+        }
+    };
+    // const [filePath, setFilePath] = useState('');
+    // const handleFileChange = (event) => {
+    //     const file = event.target.files[0]; // Get the selected file
+    //     if (file) {
+    //       // Extract the path from the file object
+    //         const path = URL.createObjectURL(file);
+    //         setCurrentDestination({...currentDestination, image: path});
+    //         console.log(path);
+    //         }
             
-        };
+    //     };
     // const handleFileChange = async (event) => {
     //     const file = event.target.files[0]; // Get the selected file
     //     if (file) {
@@ -176,7 +185,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
                                         )}
                                     </div>
                                     <label htmlFor="imageInput" className={`btn btn-outline-secondary my-3 ${styles.chooseFileButton}`}>Choose Image</label>
-                                    <input type="file" className={`form-control-file ${styles.imageFile} d-none`} id="imageInput" onChange={handleFileChange} />
+                                    <input type="file" className={`form-control-file ${styles.imageFile} d-none`} id="imageInput" onChange={handleImageChange} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="titleInput">Title</label>
