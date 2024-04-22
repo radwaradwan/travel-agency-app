@@ -19,12 +19,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
         endDate: '',
         description: '',
     });
-    // const [base64Image, setBase64Image] = useState(null);
-
-    // if(mode==="edit"){
-    //     setCurrentDestination(currentObject);
-    //     console.log(currentObject);
-    // }
+    
     // Update currentDestination when the currentObject changes
     useEffect(() => {
         if (mode === "edit") {
@@ -52,28 +47,31 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
         
     };
 
+
     // const handleImageChange = (e) => {
-    //     const file = currentDestination.image.target.files[0];
+    //     const file = e.target.files[0];
     //     if (file) {
     //         const reader = new FileReader();
     //         reader.onload = () => {
-    //         setBase64Image(reader.result);
+    //             setCurrentDestination({...currentDestination, image: reader.result});
     //         };
+    //         console.log(file);
     //         reader.readAsDataURL(file);
-    //         }
-    // }
-
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
+    //         console.log("image path",currentDestination.image);
+    //     }
+    // };
+    // const [filePath, setFilePath] = useState('');
+    const handleFileChange = (event) => {
+        const file = event.target.files[0]; // Get the selected file
         if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                setCurrentDestination({...currentDestination, image: reader.result});
-            };
-            console.log(file);
-            reader.readAsDataURL(file);
-        }
-    };
+          // Extract the path from the file object
+            const path = URL.createObjectURL(file);
+            setCurrentDestination({...currentDestination, image: path});
+            console.log(path);
+            }
+            
+        };
+    
 
     return (
         <div>
@@ -88,7 +86,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group d-flex flex-column" >
                                     <img src={currentDestination.image} alt='no choosen img'/>
-                                    <input type="file" className="form-control-file" id="imageInput" value={currentDestination.image.name} onChange={handleImageChange} />
+                                    <input type="file" className="form-control-file" id="imageInput" value={currentDestination.image.name} onChange={handleFileChange} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="titleInput">Title</label>
