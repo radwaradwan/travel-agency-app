@@ -5,6 +5,8 @@ import axios from 'axios';
 import DeleteAlert from '../Modal/DeleteAlert';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import editIcon from '../../assets/img/edit.png'
+import deleteIcon from '../../assets/img/delete.png'
 
 function DashboardTable() {
     // const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +36,7 @@ function DashboardTable() {
     const addDestination = async (destination) => {
         try {
             // Post data to API
-            const response = await axios.post("https://661d850798427bbbef020a05.mockapi.io/Destination", destination);
+            const response = await axios.post("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/.json", destination);
             console.log(response);
             setDestinations((prevDestination)=>[...prevDestination,response.data])
             console.log("nnnnnnnnnnnnnnnn",destinations);
@@ -48,10 +50,11 @@ function DashboardTable() {
     const fetchData = async () => {
         try {
         // get data from the Api
-        const response = await axios.get("https://661d850798427bbbef020a05.mockapi.io/Destination");
+        // const response = await axios.get("https://661d850798427bbbef020a05.mockapi.io/Destination");
+        const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/.json");
         // append all users to the setUsers as an array
         setDestinations(response.data);
-        console.log(response.data);
+        console.log("from get",response.data);
         console.log("nnnn",destinations);
         } catch (error) {
         console.error("Error fetching data:", error);
@@ -94,9 +97,11 @@ function DashboardTable() {
 
     return (
         <div className ={`container-fluid p-5`}>
-            <div className='d-flex justify-content-between align-items-center mb-2'> 
-                <h1 className={`${styles.destination}`}>Destinations</h1>
-                <button className={`btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={handleAdd} >Add Destination</button>
+            <div className='d-flex align-items-center mb-2'> 
+                <h1 className={`col-md-10 me-5 ${styles.destination}`}>Destinations</h1>
+                <div className='justify-content-end ms-5'>
+                    <button className={` btn btn-primary ${styles.add}`} data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={handleAdd} >Add Destination</button>
+                </div>
                 <Modal 
                 modalId="AddDestinationModal"
                 mode={modalMode}
@@ -118,27 +123,46 @@ function DashboardTable() {
                     </tr>
                 </thead>
                 <tbody>
-                {destinations.map((destination ) => (
-                    <tr key={destination.id}>
-                    <td><img src={destination.image} alt='detination'/></td>
-                    <td>{destination.title}</td>
-                    <td>{destination.rate}</td>
-                    <td>{destination.startDate}</td>
-                    <td>{destination.endDate}</td>
-                    <td>{destination.description}</td>
-                    <td>
-                        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteAlertModal">delete</button>
+                    <tr>
+                    <td>{destinations.title}</td>
+                    <td>{destinations.rate}</td>
+                    <td className='d-flex justify-content-center'>
+                        <div className='me-4' data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={() => handleEdit(destinations)}><img className={styles.editButton} src={editIcon} alt='Edit'/></div>
+                        <div data-bs-toggle="modal" data-bs-target="#deleteAlertModal"><img className={styles.editButton} src={deleteIcon} alt='delete'/></div>
                         <DeleteAlert
                             modalId="deleteAlertModal"
                             deleteDes={deleteDestination}
-                            destination={destination}
-                        />
-                        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={() => handleEdit(destination)}>Edit</button>
+                            destination={destinations}
+                        />          
                     </td>
-                </tr>
-                ))}
-                    
+                    </tr>
+                    {destinations.length > 0 ? (
+                        destinations.map((destination) => (
+                            <tr key={destination.id}>
+                                <td><img src={destination.image} alt='detination'/></td>
+                                <td>{destination.title}</td>
+                                <td>{destination.rate}</td>
+                                <td>{destination.startDate}</td>
+                                <td>{destination.endDate}</td>
+                                <td>{destination.description}</td>
+                                <td className='d-flex justify-content-center'>
+                                    <div className='me-4' data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={() => handleEdit(destinations)}><img className={styles.editButton} src={editIcon} alt='Edit'/></div>
+                                    <div data-bs-toggle="modal" data-bs-target="#deleteAlertModal"><img className={styles.editButton} src={deleteIcon} alt='delete'/></div>
+                                    <DeleteAlert
+                                        modalId="deleteAlertModal"
+                                        deleteDes={deleteDestination}
+                                        destination={destinations}
+                                    />          
+                                </td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="7">No destinations available</td>
+                        </tr>
+                    )}
                 </tbody>
+
             </table>
             <ToastContainer/>
         </div>

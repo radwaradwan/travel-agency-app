@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { toast } from 'react-toastify';
+import styles from './Modal.module.css'
+
 function Modal({ modalId, mode, currentObject, onAddSubmit }) {
     const handleAddUpdateAndNotify = () => {
         if(mode==="add"){
@@ -34,7 +36,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
         onAddSubmit(currentDestination);
 
         
-        console.log(currentDestination);
+        console.log("from modal",currentDestination);
         // Clear the form fields
         setCurrentDestination({
             image: '',
@@ -71,12 +73,93 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
             }
             
         };
+    // const handleFileChange = async (event) => {
+    //     const file = event.target.files[0]; // Get the selected file
+    //     if (file) {
+    //         try {
+    //             const resizedImage = await resizeImage(file); // Resize the image
+    //             setCurrentDestination({ ...currentDestination, image: resizedImage });
+    //         } catch (error) {
+    //             console.error('Error resizing image:', error);
+    //         }
+    //     }
+    // };
     
+    // const resizeImage = (file) => {
+    //     return new Promise((resolve, reject) => {
+    //         const reader = new FileReader();
+    //         reader.onload = (event) => {
+    //             const img = new Image();
+    //             img.src = event.target.result;
+    //             img.onload = () => {
+    //                 const canvas = document.createElement('canvas');
+    //                 const ctx = canvas.getContext('2d');
+    //                 const maxWidth = 200; // Set the maximum width for the resized image
+    //                 const maxHeight = 200; // Set the maximum height for the resized image
+    //                 let width = img.width;
+    //                 let height = img.height;
+    
+    //                 if (width > height) {
+    //                     if (width > maxWidth) {
+    //                         height *= maxWidth / width;
+    //                         width = maxWidth;
+    //                     }
+    //                 } else {
+    //                     if (height > maxHeight) {
+    //                         width *= maxHeight / height;
+    //                         height = maxHeight;
+    //                     }
+    //                 }
+    
+    //                 canvas.width = width;
+    //                 canvas.height = height;
+    
+    //                 ctx.drawImage(img, 0, 0, width, height);
+    
+    //                 canvas.toBlob((blob) => {
+    //                     resolve(new File([blob], file.name, { type: 'image/jpeg' }));
+    //                 }, 'image/jpeg');
+    //             };
+    //             img.onerror = (error) => {
+    //                 reject(error);
+    //             };
+    //         };
+    //         reader.onerror = (error) => {
+    //             reject(error);
+    //         };
+    //         reader.readAsDataURL(file);
+    //     });
+    // };
+    
+    // const handleFileChange = (event) => {
+    //     const file = event.target.files[0]; // Get the selected file
+    //     if (file) {
+    //       // Convert the file to a data URL
+    //         const reader = new FileReader();
+    //         reader.onload = () => {
+    //             // Set the data URL to the state
+    //             setCurrentDestination({
+    //             ...currentDestination,
+    //             image: reader.result
+    //             });
+    //         };
+    //         reader.readAsDataURL(file);
+    //         }
+    //     };
+
+    // const handleFileChange = (event) => {
+    //     const file = event.target.files[0]; // Get the selected file
+    //     if (file) {
+    //       // Extract the file name from the File object
+    //         const fileName = file.name;
+    //         setCurrentDestination({...currentDestination,image: fileName});
+    //         }
+    //     };
 
     return (
         <div>
             <div className='modal fade' id={modalId} tabIndex="-1" aria-labelledby="AddDestinationModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-scrollable">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">{mode === "add" ? "Add Destination" : "Edit Destination"}</h5>
@@ -84,9 +167,16 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
                         </div>
                         <div className="modal-body">
                             <form onSubmit={handleSubmit}>
-                                <div className="form-group d-flex flex-column" >
-                                    <img src={currentDestination.image} alt='no choosen img'/>
-                                    <input type="file" className="form-control-file" id="imageInput" value={currentDestination.image.name} onChange={handleFileChange} />
+                                <div className={`form-group d-flex flex-column justify-content-center align-items-center mb-3 ${styles.imageFileContainer}`}>
+                                    <div className={`d-flex justify-content-center align-items-center fw-bold ${styles.imageDivStyle}`}>
+                                        {currentDestination.image ? (
+                                            <img src={currentDestination.image} alt='' />
+                                        ) : (
+                                            <span className='mt-3'>image preview</span>
+                                        )}
+                                    </div>
+                                    <label htmlFor="imageInput" className={`btn btn-outline-secondary my-3 ${styles.chooseFileButton}`}>Choose Image</label>
+                                    <input type="file" className={`form-control-file ${styles.imageFile} d-none`} id="imageInput" onChange={handleFileChange} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="titleInput">Title</label>
@@ -110,7 +200,7 @@ function Modal({ modalId, mode, currentObject, onAddSubmit }) {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleAddUpdateAndNotify}>{mode==="add"? "Add Destination": "Save changes"}</button>
+                                    <button type="submit" className={`btn btn-primary ${styles.addEditButton}`} data-bs-dismiss="modal" onClick={handleAddUpdateAndNotify}>{mode==="add"? "Add Destination": "Save changes"}</button>
                                 </div>
                             </form>
                         </div>

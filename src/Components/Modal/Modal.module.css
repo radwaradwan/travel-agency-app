@@ -1,0 +1,16 @@
+.addEditButton{
+    background-color: #07689F;
+}
+.addEditButton:hover{
+    background-color: #07689F !important;
+}
+.imageFileContainer{
+    border:2px solid #ddd;
+}
+.imageDivStyle{
+    height:100%;
+    width:100%
+}
+.imageDivStyle img{
+    width:100%;
+}
