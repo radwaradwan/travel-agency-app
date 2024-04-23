@@ -7,6 +7,7 @@ import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import editIcon from '../../assets/img/edit.png'
 import deleteIcon from '../../assets/img/delete.png'
+import { toast } from 'react-toastify';
 
 function DashboardTable() {
     const [modalMode, setModalMode] = useState("add");
@@ -44,7 +45,7 @@ function DashboardTable() {
                     [Object.keys(destinations)]: response.data
                 };
             });
-            
+            toast.success('Destination Added successfully.');
             console.log("bbbbbbbbbb",{[Object.keys(destinations)]: response.data});
             console.log("nnnnnnnnnnnnnnnn",destinations);
         } catch (error) {
@@ -137,6 +138,7 @@ function DashboardTable() {
             // setDestinations(updatedDes);
             const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
                 setDestinations(response.data);
+                toast.success('Destination Updated successfully.');
                 console.log("hello updated");
 
         } catch (error) {

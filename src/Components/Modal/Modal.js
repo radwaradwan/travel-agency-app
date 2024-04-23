@@ -36,17 +36,12 @@ function Modal({ modalId, destinationID,mode, currentObject, onAddSubmit }) {
 
         // Call the onAddSubmit prop with the currentDestination
         onAddSubmit(currentDestination);
-        if(mode==="add"){
-            toast.success('Destination Added successfully.');
-        }
-        else if (mode==="edit"){
-            toast.success('Destination Updated successfully.');
-        }
+        
 
         
         console.log("from modal",currentDestination);
         // Clear the form fields
-        setCurrentDestination({
+        setCurrentDestination   ({
             image: '',
             title: '',
             rate: '',
@@ -54,6 +49,13 @@ function Modal({ modalId, destinationID,mode, currentObject, onAddSubmit }) {
             endDate: '',
             description: '',
         });
+
+        // if(mode==="add"){
+        //     toast.success('Destination Added successfully.');
+        // }
+        // else if (mode==="edit"){
+        //     toast.success('Destination Updated successfully.');
+        // }
         
     };
 
