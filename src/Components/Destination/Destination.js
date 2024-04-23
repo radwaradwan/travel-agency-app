@@ -110,56 +110,122 @@ function Destination() {
 
 
     ];
-    const [cardsState,setCardsState]=useState(cards);
-    useEffect(() => {fetchData()},[]);
+    const [cardsState,setCardsState]=useState([]);
+    // useEffect(() => {fetchData()},[]);
 
-    const fetchData = async () => {
-        try {
-        // get data from the Api
-        const response = await axios.get("https://661d850798427bbbef020a05.mockapi.io/Destination");
-        setCardsState(prevCards => [...prevCards, ...response.data]);
-        console.log(...response.data);
-        } catch (error) {
-        console.error("Error fetching data:", error);
-        }
-    };
-    const numRows = Math.ceil(cardsState.length / 4);
+    // const fetchData = async () => {
+    //     try {
+    //     // get data from the Api
+    //     const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
+    //     setCardsState(prevCards => [...prevCards, response.data]);
+    //     console.log(response.data);
+    //     console.log("bbbbbbbb",[cardsState]);
+    //     console.log("llllllllll",cardsState.length);
+    //     console.log("rrr",[response.data].length);
+    //     } catch (error) {
+    //     console.error("Error fetching data:", error);
+    //     }
+    // };
+    // useEffect(() => {},[cardsState]);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
+                const cardsArray = Object.values(response.data);
+                setCardsState(cardsArray);
+                // setCardsState(response.data);
+                console.log(cardsArray);
+                
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+
+        };
+
+        fetchData();
+        
+        console.log("mmm",cardsState);
+    
+    },[]);
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
+    //             setCardsState(response.data);
+    //             console.log(response.data);
+                
+    //         } catch (error) {
+    //             console.error("Error fetching data:", error);
+    //         }
+    //         };
+        
+    //         fetchData();
+    //         console.log("llllll",cardsState);
+    //         const intervalId = setInterval(fetchData, 500); // Fetch data every 5 seconds
+        
+    //         return () => clearInterval(intervalId);
+    //     }, []);
+
+    // if(cardsState.length>0){
+    //     const numRows= Math.ceil([cardsState[0][0]].length / 4);
+    //     console.log("mmmmmmm",numRows);
+    // }
+    const numRows= Math.ceil(cardsState.length / 4);
     const generateRow = (rowIndex) => {
         const startIdx = rowIndex * 4;
         const endIdx = startIdx + 4;
         const rowCards = cardsState.slice(startIdx, endIdx);
-
+        console.log("cards",rowCards);
+        console.log("nn",numRows);
+        console.log("state",cardsState[0].id);
+        console.log("length",[cardsState].length);
+        console.log("Row Cards:", rowCards); // Log the rowCards array
         return (
-            <div key={rowIndex} className="row mb-lg-3">
-                {rowCards.map((card,idx) => (
-                    <div key={idx} className="col-md-3">
-                        <div className="card p-2 mb-md-0 mb-3">
-                            <div className="position-relative">
-                                <img src={card.image} className="card-img-top" alt={card.title} />
-                                <div className="position-absolute top-0 start-0 mt-2 ms-2">
-                                    <img src={heart} alt="fav icon"/>
-                                </div>
-                                <div className={`d-flex justify-content-between position-absolute bottom-0 p-2 ${styles.imgOverlay} w-100`}>
-                                    <img src={group} alt="group icons"/>
-                                    <img src={number} alt="rate"/>
-                                </div>
-                            </div>
-                            
-                            <div className="card-body p-0">
-                                <h5 className="card-title fw-bolder pt-2">{card.title}</h5>
-                                <p className={`card-text lh-1 ${styles.side}`}>{card.side}</p>
-                                <div className="d-flex">
-                                    <p className="card-text">{card.startDate} &nbsp; </p>
-                                    <p className="card-text lh-0">{ card.endDate}</p>
-                                </div> 
-                                <p className="card-text fw-lighter lh-1 pb-2">{card.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+            <div key={rowIndex} className="row mb-lg-3 d-flex">
+                {rowCards.map((card) => (
+                    
+                        
+                    <div key={card.id} className="col-md-3">
+                    {generateCard(card)}
+                </div>
+                    
+                    
+            ))}
             </div>
         );
     };
+    
+    const generateCard = (card) =>{
+        return(
+            <div className="card p-2 mb-md-0 mb-3">
+                                <div className="position-relative">
+                                    <img src={card.image} className="card-img-top" alt={card.title} />
+                                    <div className="position-absolute top-0 start-0 mt-2 ms-2">
+                                        <img src={heart} alt="fav icon"/>
+                                    </div>
+                                    <div className={`d-flex justify-content-between position-absolute bottom-0 p-2 ${styles.imgOverlay} w-100`}>
+                                        <img src={group} alt="group icons"/>
+                                        <img src={number} alt="rate"/>
+                                    </div>
+                                </div>
+                                
+                                <div className="card-body p-0">
+                                    <h5 className="card-title fw-bolder pt-2">{card.title}</h5>
+                                    <p className={`card-text lh-1 ${styles.side}`}>{card.rate}</p>
+                                    <div className="d-flex">
+                                        <p className="card-text">{card.startDate} &nbsp; </p>
+                                        <p className="card-text lh-0">{card.endDate}</p>
+                                    </div> 
+                                    <p className="card-text fw-lighter lh-1 pb-2">{card.description}</p>
+                                </div>
+                            </div>
+
+        );
+        
+    }
 
     return (
         <div className="container mt-5">
