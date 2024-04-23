@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import { toast } from 'react-toastify';
 import styles from './Modal.module.css'
 // import { randomNumber } from 'random-number';
 

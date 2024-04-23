@@ -1,17 +1,17 @@
 import React,{useState,useEffect} from "react";
 import styles from './Destination.module.css'
-import pic1 from '../../assets/img/pic1.svg'
-import pic2 from '../../assets/img/pic2.svg'
-import pic3 from '../../assets/img/pic3.svg'
-import pic4 from '../../assets/img/pic4.svg'
-import pic5 from '../../assets/img/pic5.svg'
-import pic6 from '../../assets/img/pic6.svg'
-import pic7 from '../../assets/img/pic7.svg'
-import pic8 from '../../assets/img/pic8.svg'
-import pic9 from '../../assets/img/pic9.svg'
-import pic10 from '../../assets/img/pic10.svg'
-import pic11 from '../../assets/img/pic11.svg'
-import pic12 from '../../assets/img/pic12.svg'
+// import pic1 from '../../assets/img/pic1.svg'
+// import pic2 from '../../assets/img/pic2.svg'
+// import pic3 from '../../assets/img/pic3.svg'
+// import pic4 from '../../assets/img/pic4.svg'
+// import pic5 from '../../assets/img/pic5.svg'
+// import pic6 from '../../assets/img/pic6.svg'
+// import pic7 from '../../assets/img/pic7.svg'
+// import pic8 from '../../assets/img/pic8.svg'
+// import pic9 from '../../assets/img/pic9.svg'
+// import pic10 from '../../assets/img/pic10.svg'
+// import pic11 from '../../assets/img/pic11.svg'
+// import pic12 from '../../assets/img/pic12.svg'
 import heart from '../../assets/img/Heart.svg'
 import number from '../../assets/img/Number.svg'
 import group from '../../assets/img/Group.svg'
@@ -20,113 +20,98 @@ import axios from "axios";
 
 
 function Destination() {
-    const cards = [
-        {
-            image: pic1,
-            title:'Berlin',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic2,
-            title:'Paris',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic3,
-            title:'Madrid',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic4,
-            title:'Barcelona',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic5,
-            title:'Rom',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic6,
-            title:'Milan',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic7,
-            title:'Istanbul',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic8,
-            title:'Dubai',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic9,
-            title:'Amesterdam',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic10,
-            title:'New York',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic11,
-            title:'Marollca',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',
-            endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
-        {
-            image: pic12,
-            title:'Teneriffa',
-            side: 'SIDE',
-            startDate:'Wed 25 Jan',
-            endDate: ' Fri 27 Jan',
-            description: 'A tour of the city and its surroundings led by a professional guide ...' 
-        },
+    // const cards = [
+    //     {
+    //         image: pic1,
+    //         title:'Berlin',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic2,
+    //         title:'Paris',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic3,
+    //         title:'Madrid',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic4,
+    //         title:'Barcelona',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic5,
+    //         title:'Rom',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic6,
+    //         title:'Milan',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic7,
+    //         title:'Istanbul',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic8,
+    //         title:'Dubai',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic9,
+    //         title:'Amesterdam',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic10,
+    //         title:'New York',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic11,
+    //         title:'Marollca',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',
+    //         endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
+    //     {
+    //         image: pic12,
+    //         title:'Teneriffa',
+    //         side: 'SIDE',
+    //         startDate:'Wed 25 Jan',
+    //         endDate: ' Fri 27 Jan',
+    //         description: 'A tour of the city and its surroundings led by a professional guide ...' 
+    //     },
 
 
-    ];
+    // ];
     const [cardsState,setCardsState]=useState([]);
-    // useEffect(() => {fetchData()},[]);
 
-    // const fetchData = async () => {
-    //     try {
-    //     // get data from the Api
-    //     const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
-    //     setCardsState(prevCards => [...prevCards, response.data]);
-    //     console.log(response.data);
-    //     console.log("bbbbbbbb",[cardsState]);
-    //     console.log("llllllllll",cardsState.length);
-    //     console.log("rrr",[response.data].length);
-    //     } catch (error) {
-    //     console.error("Error fetching data:", error);
-    //     }
-    // };
-    // useEffect(() => {},[cardsState]);
 
 
     useEffect(() => {
@@ -150,29 +135,7 @@ function Destination() {
     
     },[]);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
-    //             setCardsState(response.data);
-    //             console.log(response.data);
-                
-    //         } catch (error) {
-    //             console.error("Error fetching data:", error);
-    //         }
-    //         };
-        
-    //         fetchData();
-    //         console.log("llllll",cardsState);
-    //         const intervalId = setInterval(fetchData, 500); // Fetch data every 5 seconds
-        
-    //         return () => clearInterval(intervalId);
-    //     }, []);
 
-    // if(cardsState.length>0){
-    //     const numRows= Math.ceil([cardsState[0][0]].length / 4);
-    //     console.log("mmmmmmm",numRows);
-    // }
     const numRows= Math.ceil(cardsState.length / 4);
     const generateRow = (rowIndex) => {
         const startIdx = rowIndex * 4;

@@ -22,11 +22,6 @@
     font-family: 'popReg';
 }
 
-@media screen and (max-width: 575.98px) {
-    .profile {
-        display: none;
-    }
-}
 .dashboard{
     width: 25px;
     height:40px;
@@ -34,4 +29,17 @@
 .home{
     width: 25px;
     height:40px;
+}
+
+@media screen and (max-width: 575.98px) {
+    .profile {
+        display: none;
+    }
+    .search{
+        margin-top: 20px;
+    }
+    .navToggler{
+        margin-left: 55px;
+    }
+    
 }
