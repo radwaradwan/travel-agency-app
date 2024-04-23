@@ -4,15 +4,6 @@ import styles from './Modal.module.css'
 // import { randomNumber } from 'random-number';
 
 function Modal({ modalId, destinationID,mode, currentObject, onAddSubmit }) {
-    const handleAddUpdateAndNotify = () => {
-        if(mode==="add"){
-            toast.success('Destination Added successfully.');
-        }
-        else if (mode==="edit"){
-            toast.success('Destination Updated successfully.');
-        }
-
-    };
     
     const [currentDestination, setCurrentDestination] = useState({
         id:'',
@@ -38,11 +29,19 @@ function Modal({ modalId, destinationID,mode, currentObject, onAddSubmit }) {
     }
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent default form submission
-        
-        currentDestination.id=getRandomInt(1,100000);
-        
+
+        if(mode==="add"){
+            currentDestination.id=getRandomInt(1,100000);
+        }
+
         // Call the onAddSubmit prop with the currentDestination
         onAddSubmit(currentDestination);
+        if(mode==="add"){
+            toast.success('Destination Added successfully.');
+        }
+        else if (mode==="edit"){
+            toast.success('Destination Updated successfully.');
+        }
 
         
         console.log("from modal",currentDestination);
@@ -71,7 +70,6 @@ function Modal({ modalId, destinationID,mode, currentObject, onAddSubmit }) {
             console.log("image path",currentDestination.image);
         }
     };
-    // const [filePath, setFilePath] = useState('');
     // const handleFileChange = (event) => {
     //     const file = event.target.files[0]; // Get the selected file
     //     if (file) {
@@ -209,7 +207,7 @@ function Modal({ modalId, destinationID,mode, currentObject, onAddSubmit }) {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" className={`btn btn-primary ${styles.addEditButton}`} data-bs-dismiss="modal" onClick={handleAddUpdateAndNotify}>{mode==="add"? "Add Destination": "Save changes"}</button>
+                                    <button type="submit" className={`btn btn-primary ${styles.addEditButton}`} data-bs-dismiss="modal">{mode==="add"? "Add Destination": "Save changes"}</button>
                                 </div>
                             </form>
                         </div>

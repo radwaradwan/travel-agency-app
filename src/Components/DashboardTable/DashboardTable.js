@@ -86,7 +86,7 @@ function DashboardTable() {
         
             fetchData();
         
-            const intervalId = setInterval(fetchData, 5000); // Fetch data every 5 seconds
+            const intervalId = setInterval(fetchData, 500); // Fetch data every 5 seconds
         
             return () => clearInterval(intervalId);
         }, []);
@@ -103,22 +103,47 @@ function DashboardTable() {
         }
     };
     
+    // const updateDestination = async (updatedDestinationData) => {
+    //     try {
+    //         await axios.put(`https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/${updatedDestinationData.id}.json`, updatedDestinationData);
+    //         const updatedDes = Object.keys(destinations).map(key => {
+    //             if (destinations[key] === updatedDestinationData[key]) {
+    //                 return { ...destinations, ...response.data };
+    //             }
+    //             return destinations;
+    //             });
+    //         // const getData = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
+    //         //     setDestinations(getData.data);
+            
+    //         setDestinations(updatedDes);
+    //     } catch (error) {
+    //         console.error('Error updating destination:', error);
+    //     }
+    //     };
+
     const updateDestination = async (updatedDestinationData) => {
         try {
             await axios.put(`https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/${updatedDestinationData.id}.json`, updatedDestinationData);
-            // const updatedDes = Object.keys(destinations).map(key => {
-                // if (destinations[key] === updatedDestinationData[key]) {
-                //     return { ...destinations, ...response.data };
-                // }
-                // return destinations;
-                // });
-            const getData = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
-                setDestinations(getData.data);
+            
+            // const updatedDes = Object.keys(destinations).reduce((acc, key) => {
+            //     if (key === updatedDestinationData.id) {
+            //         acc[key] = { ...response.data }; // Use response.data directly since it contains the updated destination data
+            //     } else {
+            //         acc[key] = destinations[key];
+            //     }
+            //     return acc;
+            // }, {});
+    
             // setDestinations(updatedDes);
+            const response = await axios.get("https://travel-agency-app-2ea08-default-rtdb.firebaseio.com/cards/.json");
+                setDestinations(response.data);
+                console.log("hello updated");
+
         } catch (error) {
             console.error('Error updating destination:', error);
         }
-        };
+    };
+    
 
     const handleEdit = (destination) => {
         setModalMode("edit");
@@ -147,6 +172,7 @@ function DashboardTable() {
             <table>
                 <thead>
                     <tr>
+                        <th>id</th>
                         <th>Image</th>
                         <th>Title</th>
                         <th>Rate</th>
@@ -157,11 +183,13 @@ function DashboardTable() {
                     </tr>
                 </thead>
                 <tbody>
+                    {/* key is a title rate description etc */}
                     {Object.keys(destinations).length > 0 ? (
                         Object.keys(destinations).map((key) => {
                             const destination = destinations[key];
                             return (
                                 <tr key={key}>
+                                    <td>{destination.id}</td>
                                     <td><img src={destination.image} alt='destination'/></td>
                                     <td>{destination.title}</td>
                                     <td>{destination.rate}</td>
@@ -170,9 +198,9 @@ function DashboardTable() {
                                     <td>{destination.description}</td>
                                     <td className='d-flex justify-content-center'>
                                         <div className='me-4' data-bs-toggle="modal" data-bs-target="#AddDestinationModal" onClick={() => handleEdit(destination)}><img className={styles.editButton} src={editIcon} alt='Edit'/></div>
-                                        <div data-bs-toggle="modal" data-bs-target="#deleteAlertModal"><img className={styles.editButton} src={deleteIcon} alt='delete'/></div>
+                                        <div data-bs-toggle="modal" data-bs-target={`#deleteAlertModal-${destination.id}`}><img className={styles.editButton} src={deleteIcon} alt='delete'/></div>
                                         <DeleteAlert
-                                            modalId="deleteAlertModal"
+                                            modalId={`deleteAlertModal-${destination.id}`}
                                             deleteDes={deleteDestination}
                                             destination={destination}
                                         />          
