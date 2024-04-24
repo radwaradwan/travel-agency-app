@@ -22,17 +22,20 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+      <div className="container-fluid mt-2 mt-md-0">
         <div className="w-100 d-md-flex align-items-md-center">
-          <a className="navbar-brand me-5 ms-md-5 order-1" href="##">
-            <img src={logo} alt="logo" className={styles.logo} />
-          </a>
-          <button className={`navbar-toggler ${styles.navToggler}`}type="button" onClick={toggleNavbar}>
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <div className=" d-flex justify-content-between order-1">
+              <a className="navbar-brand me-5 ms-md-5" href="##">
+              <img src={logo} alt="logo" className={styles.logo} />
+            </a>
+            <button className={`navbar-toggler`}type="button" onClick={toggleNavbar}>
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          
           <div className={`collapse navbar-collapse order-3 ${showNavbar ? "show" : ""}`}>
             
-            <ul className={`navbar-nav d-flex flex-row my-3  ${styles.navItems}`}>
+            <ul className={`navbar-nav d-flex flex-row justify-content-between my-3`}>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/">
                   <img src={home} alt="logo" className={`me-2 ${styles.home} `} />
@@ -68,9 +71,9 @@ function Navbar() {
                   <img src={dashboard} alt="logo" className={`me-2 ${styles.dashboard} `} />
                 </NavLink>
               </li>
-              <li className="nav-item d-flex align-items-center">
+              <li className="nav-item d-md-flex align-items-center">
                 <a className="nav-link" href="##">
-                  <img src={Photo} alt="logo" className="me-md-2 " />
+                  <img src={Photo} alt="logo" className="me-2 " />
                 </a>
                 <div className={styles.profile}>
                   <p className={styles.yourAccount}>Your Account</p>
@@ -80,7 +83,7 @@ function Navbar() {
             </ul>
           </div>
           <form className={`me-md-5 ms-md-5 col-md-4 d-flex order-2 position-relative ${styles.search}`}>
-              <input className="form-control me-2 flex-grow-1" type="search" />
+              <input className="form-control me-md-2 flex-grow-1" type="search" />
               <img src={search} alt="search" className={styles.customSearch} />
           </form>
         </div>
