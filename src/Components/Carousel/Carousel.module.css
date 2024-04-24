@@ -17,8 +17,8 @@
 } 
 
 .sliderContainer {
-    margin-bottom: 50px; /* Adjust the margin-bottom as needed */
+    margin-bottom: 50px;
 }
 .slick-dots {
-    bottom: -50px !important; /* Adjust the margin-top as needed */
+    bottom: -50px !important;
 }

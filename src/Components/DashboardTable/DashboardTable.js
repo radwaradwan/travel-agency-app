@@ -212,8 +212,14 @@ function DashboardTable() {
                         })
                     ) : (
                         <tr>
-                            <td colSpan="7">No destinations available</td>
+                            <td colSpan="8" className="text-center">
+                                <div className="spinner-border text-primary" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
+                            </td>
                         </tr>
+                        
+                        
                     )}
                 </tbody>
 
