@@ -191,13 +191,13 @@ function Destination() {
     }
 
     return (
-        <div className="container mt-5">
+        <section className="container mt-5">
             <div>
                 <h2>Explore Stays In Trending Destinations</h2>
                 <p className="lh-1 mb-4 fw-bold">Find Hot Stays!</p>
             </div>
             {Array.from({ length: numRows }, (_,index) => generateRow(index))}
-        </div>
+        </section>
     );
 }
 

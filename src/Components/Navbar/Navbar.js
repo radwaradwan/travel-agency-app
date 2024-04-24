@@ -79,7 +79,7 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <form className={`me-md-5 ms-md-4 col-md-4 d-flex order-2 position-relative ${styles.search}`}>
+          <form className={`me-md-5 ms-md-5 col-md-4 d-flex order-2 position-relative ${styles.search}`}>
               <input className="form-control me-2 flex-grow-1" type="search" />
               <img src={search} alt="search" className={styles.customSearch} />
           </form>

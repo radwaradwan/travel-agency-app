@@ -82,13 +82,13 @@ function PastOffers() {
 
     };
     return (
-        <div className="container mt-5">
+        <section className="container mt-5">
             <div>
                 <h2>Compare The Highest Reviewed Past Offers </h2>
                 <p className="lh-1 mb-4 ">Browse By Type</p>
             </div>
         {Array.from({ length: numRows }, (_,index) => generateRow(index))}
-        </div>
+        </section>
     );
 }
 

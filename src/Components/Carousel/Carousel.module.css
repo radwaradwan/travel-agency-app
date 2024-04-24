@@ -15,32 +15,10 @@
     top: 25%;
     transform: translateY(-25%);
 } 
-.carouselIndicatorContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px; /* Adjust as needed */
-}
 
-.carouselIndicatorContainer .carouselIndicators {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    padding-left: 0;
+.sliderContainer {
+    margin-bottom: 50px; /* Adjust the margin-bottom as needed */
 }
-
-.carouselIndicatorContainer .carouselIndicators li {
-    width: 10px;
-    height: 10px;
-    background-color: transparent; /* Adjust color as needed */
-    border-radius: 50%;
-    margin: 0 5px; /* Adjust spacing between indicators */
-    cursor: pointer;
-    border: 1px solid black;
-}
-
-.carouselIndicatorContainer .carouselIndicators li.active {
-    background-color: black; /* Adjust active indicator color */
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+.slick-dots {
+    bottom: -50px !important; /* Adjust the margin-top as needed */
 }
