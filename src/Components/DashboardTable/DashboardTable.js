@@ -174,7 +174,6 @@ function DashboardTable() {
             <table>
                 <thead>
                     <tr>
-                        <th>id</th>
                         <th>Image</th>
                         <th>Title</th>
                         <th>Rate</th>
@@ -191,7 +190,6 @@ function DashboardTable() {
                             const destination = destinations[key];
                             return (
                                 <tr key={key}>
-                                    <td>{destination.id}</td>
                                     <td><img src={destination.image} alt='destination'/></td>
                                     <td>{destination.title}</td>
                                     <td>{destination.rate}</td>
@@ -212,7 +210,7 @@ function DashboardTable() {
                         })
                     ) : (
                         <tr>
-                            <td colSpan="8" className="text-center">
+                            <td colSpan="7" className="text-center">
                                 <div className="spinner-border text-primary" role="status">
                                     <span className="visually-hidden">Loading...</span>
                                 </div>
